@@ -4,34 +4,16 @@ Modified by Silvia Stopponi on 15/05/2023 (lines 39ss)
 Modified by Evelien de Graaf on 13/10/2023 (changed CLTK dependency and added dependecy installation)
 """
 
-#Check if libraries are not installed and install then if not:
-import pkg_resources
-
-REQUIRED_PACKAGES = [
-    'stanza',
-    'Levenshtein',  
-]
-
-for package in REQUIRED_PACKAGES:
-    try:
-        dist = pkg_resources.get_distribution(package)
-        print('{} ({}) is installed'.format(dist.key, dist.version))
-    except pkg_resources.DistributionNotFound:
-        print('{} is NOT installed'.format(package))
-        pip install {package}
-
-
-import unicodedata
-from typing import List, Optional
-
 # OLD code:
 # from cltk.alphabet.grc import grc  # For normalizing texts
 import re
 import stanza
 from stanza.models.common.doc import Document
-stanza.download('grc')
 import pickle
 from Levenshtein import distance
+import unicodedata
+from unicodedata import normalize
+from typing import List, Optional
 
 """
 Relying on CLTK created issues when it updated; the following code is copied from their grc.normalize_grc function.
