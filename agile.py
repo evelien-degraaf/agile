@@ -18,7 +18,7 @@ for package in REQUIRED_PACKAGES:
         print('{} ({}) is installed'.format(dist.key, dist.version))
     except pkg_resources.DistributionNotFound:
         print('{} is NOT installed'.format(package))
-        !pip install {package}
+        pip install {package}
 
 
 import unicodedata
