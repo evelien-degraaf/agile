@@ -1,3 +1,2 @@
-cltk==1.0.21
-stanza>=1.2
+stanza
 Levenshtein
